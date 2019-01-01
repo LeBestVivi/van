@@ -19,6 +19,18 @@ client.on('message', msg => {
 	if (command === 'ping') { 
 		msg.reply('Pong!'); 
 	} 
+	
+	if (command === 'pull') {
+		var process = require('child_process'); 
+		
+		process.exec('git pull origin master',function (err,stdout,stderr) { 
+			if (err) { 
+				console.log("\n"+stderr); 
+			} else { 
+				console.log(stdout); 
+			} 
+		});
+	}
 }); 
 
 client.login(conf.get("token"));
