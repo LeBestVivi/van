@@ -1,5 +1,8 @@
 const Discord = require('discord.js'); 
 const client = new Discord.Client(); 
+var Config = require("node-json-config");
+
+var conf = new Config("./config.json")
 
 var prefix = "!"
 
@@ -18,4 +21,4 @@ client.on('message', msg => {
 	} 
 }); 
 
-client.login('NTI5NzYwMjQ5MTYzNTQ2NjQ1.Dw1hTw.hAQ1Kzc8mlSID9poxE1nlJVNn-4');
+client.login(conf.get("token"));
