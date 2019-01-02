@@ -32,6 +32,24 @@ client.on("ready", async () => {
 	client.user.setActivity("my engine.", {type: "WATCHING"}); //
 }); 
 
+client.on('emojiCreate', emoji => { 
+	if (emoji.guild.id === '493347937649295371') {
+		client.guilds.get('493347937649295371').channels.get('510909552070361091').send(`<:green_tick:510906637209305088> Added **${emoji.name}**.`);
+	}
+}); 
+
+client.on('emojiDelete', emoji => { 
+	if (emoji.guild.id === '493347937649295371') {
+		client.guilds.get('493347937649295371').channels.get('510909552070361091').send(`<:red_tick:510906637771472906> Deleted **${emoji.name}**.`);
+	}
+});
+
+client.on('emojiUpdate', emoji => { 
+	if (emoji.guild.id === '493347937649295371') {
+		client.guilds.get('493347937649295371').channels.get('510909552070361091').send(`:pencil: Updated **${emoji.name}**.`);
+	}
+});
+
 client.on("message", async message => { 
 	if(message.author.bot) return; 
 	if(message.channel.type === "dm") return; 
