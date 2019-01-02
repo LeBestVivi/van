@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'ping') { 
-		msg.reply('Pong!'); 
+		msg.reply('Pong! :ping_pong:'); 
 	} 
 	
 	if (command === 'pull') {
@@ -42,6 +42,7 @@ client.on('message', msg => {
 		
 		var restartModule = reloadModule('./index.js');
 	}
+	
 }); 
 
 client.login(conf.get("token"));
