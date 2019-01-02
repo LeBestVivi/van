@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'ping') { 
-		msg.reply('Pong! :ping_pong:'); 
+		msg.reply(':ping_pong:'); 
 	} 
 	
 	if (command === 'pull') {
