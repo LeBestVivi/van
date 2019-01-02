@@ -1,50 +1,32 @@
-const Discord = require('discord.js'); 
-const client = new Discord.Client(); 
+//const Discord = require('discord.js'); 
+//const client = new Discord.Client(); 
 var Config = require("node-json-config");
+const { CommandoClient } = require('discord.js-commando'); 
+const path = require('path');
 
 var conf = new Config("./config.json")
 
-var prefix = "!"
+//var prefix = "!";
+
+const client = new CommandoClient({ 
+	commandPrefix: '!', 
+	unknownCommandResponse: false, 
+	owner: '267025484028706816', 
+	disableEveryone: true,
+	unknownCommandResponse: false
+}); 
+
+client.registry 
+	.registerDefaultTypes() 
+	.registerGroups([ ['group1', 'Our First Command Group'] ]) 
+	.registerDefaultGroups() 
+	.registerDefaultCommands() 
+	.registerCommandsIn(path.join(__dirname, 'commands')); 
+
 
 client.on('ready', () => { 
 	console.log(`Logged in as ${client.user.tag}!`); 
-}); 
-
-client.on('message', msg => { 
-	if (msg.author.bot) return;
-	
-	const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
-	
-	if (command === 'ping') { 
-		msg.reply('Pong! :ping_pong:'); 
-	} 
-	
-	if (command === 'pull') {
-		var process = require('child_process'); 
-		
-		process.exec('git pull origin master',function (err,stdout,stderr) { 
-			if (err) { 
-				console.log("\n"+stderr); 
-				msg.channel.send("```\n"+stderr+"```");
-			} else { 
-				console.log(stdout); 
-				msg.channel.send(stdout);
-			} 
-		});
-	
-	}
-	
-	if (command === 'reload') {
-		function reloadModule(moduleName) { 
-			delete require.cache[require.resolve(moduleName)] 
-			console.log('reloadModule: Reloading ' + moduleName + "..."); 
-			return require(moduleName) 
-		} 
-		
-		var restartModule = reloadModule('./index.js');
-	}
-	
+	client.user.setActivity('with my engine.');
 }); 
 
 client.login(conf.get("token"));
