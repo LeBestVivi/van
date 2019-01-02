@@ -26,8 +26,10 @@ client.on('message', msg => {
 		process.exec('git pull origin master',function (err,stdout,stderr) { 
 			if (err) { 
 				console.log("\n"+stderr); 
+				msg.channel.send("```\n"+stderr+"```");
 			} else { 
 				console.log(stdout); 
+				msg.channel.send(stdout);
 			} 
 		});
 	
