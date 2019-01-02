@@ -17,7 +17,7 @@ client.on('message', msg => {
 	const command = args.shift().toLowerCase();
 	
 	if (command === 'ping') { 
-		msg.reply('Pong! :ping_pong:'); 
+		msg.reply('Pong!'); 
 	} 
 	
 	if (command === 'pull') {
@@ -30,6 +30,17 @@ client.on('message', msg => {
 				console.log(stdout); 
 			} 
 		});
+	
+	}
+	
+	if (command === 'reload') {
+		function reloadModule(moduleName) { 
+			delete require.cache[require.resolve(moduleName)] 
+			console.log('reloadModule: Reloading ' + moduleName + "..."); 
+			return require(moduleName) 
+		} 
+		
+		var restartModule = reloadModule('./index.js');
 	}
 }); 
 
