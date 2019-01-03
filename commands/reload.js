@@ -5,7 +5,7 @@ module.exports.run = async (client, msg, args) => {
   const commandName = args[0];
 
   if(!client.commands.has(commandName)) {
-  	return msg.reply("That command does not exist");
+  	return msg.channel.send("That command does not exist");
   }
 
   delete require.cache[require.resolve(`./${commandName}.js`)];
@@ -13,7 +13,7 @@ module.exports.run = async (client, msg, args) => {
   client.commands.delete(commandName);
   const props = require(`./${commandName}.js`);
   	client.commands.set(commandName, props);
-  	msg.reply("```\nThe command " + commandName + " has been reloaded.```");
+  	msg.channel.send("```\nThe command " + commandName + " has been reloaded.```");
   }
 
 module.exports.help = {
