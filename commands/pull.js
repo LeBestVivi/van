@@ -12,7 +12,7 @@ module.exports.run = async (client, msg, args) => {
 			msg.channel.send("```\n"+stderr+"```");
 		} else { 
 			console.log(stdout); 
-			msg.channel.send(stdout);
+			msg.channel.send("```\n" + stdout + "```");
 		} 
 	});
 		
