@@ -63,4 +63,12 @@ client.on("message", async message => {
 	if(commandfile) commandfile.run(client,message,args);
 });
 
+client.on("message", async message => { 
+
+	if(message.channel.type !== "dm") return; 
+	
+	
+	
+});
+
 client.login(config.token);
