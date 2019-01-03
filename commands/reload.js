@@ -5,7 +5,7 @@ module.exports.run = async (client, msg, args) => {
   const commandName = args[0];
 
   if(!client.commands.has(commandName)) {
-  	return msg.channel.send("That command does not exist");
+  	return msg.channel.send("```That command does not exist.```");
   }
 
   delete require.cache[require.resolve(`./${commandName}.js`)];
