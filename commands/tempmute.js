@@ -6,8 +6,8 @@ module.exports.run = async (client, msg, args) => {
   //!tempmute @user 1s/m/h/d
 
   let tomute = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
-  if(!tomute) return msg.reply("Could not find thay user.");
-  if(tomute.hasPermission("MANAGE_MESSAGES")) return msg.reply("Can't mute that user.");
+  if(!tomute) return msg.reply("```Could not find thay user.```");
+  if(tomute.hasPermission("MANAGE_MESSAGES")) return msg.reply("```Can't mute that user.```");
   let muterole = msg.guild.roles.find(`name`, "Muted");
   //start of create role
   if(!muterole){
@@ -29,7 +29,7 @@ module.exports.run = async (client, msg, args) => {
   }
   //end of create role
   let mutetime = args[1];
-  if(!mutetime) return msg.reply("Please specify a time!");
+  if(!mutetime) return msg.reply("```Please specify a time!```");
 
   await(tomute.addRole(muterole.id));
   msg.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);

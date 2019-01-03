@@ -6,10 +6,11 @@ module.exports.run = async (client, msg, args) => {
     .setDescription("Bot Info")
     .setColor("#15f153")
     .setThumbnail(boticon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Created At", bot.user.createdAt);
+    .addField("Bot Name:", bot.user.username)
+    .addField("Created At:", bot.user.createdAt)
+    .addField("GitHub Repository:", "(Link)[https://github.com/vanishedvan/van]");
 
-    message.channel.send(botembed);
+    msg.channel.send(botembed);
 }
 
 module.exports.help = {
