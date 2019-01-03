@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (client, msg, args) => {
-	if(!args[1]) msg.reply("Please specify the subreddit you want to get a random image post from.")
+	if(!args[0]) msg.reply("Please specify the subreddit you want to get a random image post from.")
 	
 	const got = require('got');
 	const uniqueRandomArray = require('unique-random-array');

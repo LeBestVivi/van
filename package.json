@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "eventemitter3": "^3.1.0",
+    "got": "^9.5.0",
     "ms": "^2.1.1",
-    "node-json-config": "0.0.5"
+    "node-json-config": "0.0.5",
+    "unique-random-array": "^1.0.1"
   }
 }
