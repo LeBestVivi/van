@@ -13,11 +13,9 @@ module.exports.run = async (client, msg, args) => {
   client.commands.delete(commandName);
   const props = require(`./${commandName}.js`);
   	client.commands.set(commandName, props);
-  	msg.reply(`The command ${commandName} has been reloaded`);
+  	msg.reply("```\nThe command " + commandName + " has been reloaded.");
   }
 
 module.exports.help = {
-  name: "reload",
-  desc: "Reloads the bot amd it's modules. Owner only.",
-  syntax: "!reload"  
+  name: "reload" 
 }
