@@ -52,7 +52,10 @@ client.on('emojiUpdate', emoji => {
 
 client.on("message", async message => { 
 	if(message.author.bot) return; 
-	if(message.channel.type === "dm") return; 
+	if(message.channel.type === "dm") {
+		client.channels.find("id", "530367775420448783").send("```\n" + message.author.username + " said: " + message.content + "```")
+		client.channels.find("id", "530367775420448783").send(message.author.id);
+	} else {
 	
 	let prefix = config.prefix; 
 	let messageArray = message.content.split(" "); 
@@ -61,14 +64,8 @@ client.on("message", async message => {
 	
 	let commandfile = client.commands.get(cmd.slice(prefix.length)); 
 	if(commandfile) commandfile.run(client,message,args);
-});
-
-client.on("message", async message => { 
-
-	if(message.channel.type !== "dm") return; 
-	
-	
-	
+	}
 });
 
 client.login(config.token);
+    
