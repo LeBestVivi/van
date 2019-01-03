@@ -13,7 +13,7 @@ module.exports.run = async (client, msg, args) => {
   client.commands.delete(commandName);
   const props = require(`./${commandName}.js`);
   	client.commands.set(commandName, props);
-  	msg.reply("```\nThe command " + commandName + " has been reloaded.");
+  	msg.reply("```\nThe command " + commandName + " has been reloaded.```");
   }
 
 module.exports.help = {
