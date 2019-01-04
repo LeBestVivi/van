@@ -1,4 +1,3 @@
-const moment = require("moment");
 
 module.exports.run = async (client, message, args) => {
     if(!args[0]){
