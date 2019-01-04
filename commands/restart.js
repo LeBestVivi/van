@@ -5,6 +5,8 @@ module.exports.run = async (client, msg, args) => {
 	if(msg.author.id != config.owner) return;
 	
 	var process = require('child_process'); 
+	
+	msg.channel.send("```Restarting...```")
 		
 	process.exec('pm2 start van',function (err,stdout,stderr) { 
 		if (err) { 

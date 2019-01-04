@@ -6,11 +6,11 @@ module.exports.run = async (client, msg, args) => {
 	
 	
   
-  message.author.send('Are you sure?')
+    msg.channel.send('```Are you sure?```')
       .then(function(){
-        message.channel.awaitMessages(response => message.content, {
+        msg.channel.awaitMessages(response => msg.content, {
           max: 1,
-          time: 300000,
+          time: 30000,
           errors: ['time'],
         })
         .then((collected) => {
@@ -19,21 +19,21 @@ module.exports.run = async (client, msg, args) => {
             
             var process = require('child_process'); 
 		
-	process.exec('pm2 stop van',function (err,stdout,stderr) { 
-		if (err) { 
-			console.log("\n"+stderr); 
-			msg.channel.send("```\n"+stderr+"```");
-		} else { 
-			console.log(stdout); 
-			msg.channel.send("```\n" + stdout + "```");
-		} 
-	});
-          })
-          .catch(function(){
-            message.channel.send('```You didn't send anything. Cancelling.```');
-          });
-      });
-  }
+	    	process.exec('pm2 stop van',function (err,stdout,stderr) { 
+	    		if (err) { 
+					console.log("\n"+stderr); 
+					msg.channel.send("```\n"+stderr+"```");
+				} else { 
+					console.log(stdout); 
+					msg.channel.send("```\n" + stdout + "```");
+				} 
+              })
+            .catch(function(){
+            	msg.channel.send("```You didn't send anything. Cancelling.```");
+            });
+           }
+        });
+     });
 		
 };
 
