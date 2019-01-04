@@ -8,7 +8,7 @@ module.exports.run = async (client, msg, args) => {
     .setThumbnail(boticon)
     .addField("Bot Name:", client.user.username)
     .addField("Created At:", client.user.createdAt)
-    .addField("GitHub Repository:", "(Link)[https://github.com/vanishedvan/van]");
+    .addField("GitHub Repository:", "[Link](https://github.com/vanishedvan/van)");
 
     msg.channel.send(botembed);
 }
