@@ -63,3 +63,10 @@ client.on("message", async message => {
 
 client.login(config.token);
     
+process.on("unhandledRejection", err => {
+    console.error(`UnhandledRejection: \n${err.stack}`)
+});
+
+process.on("uncaughtException", err => {
+    console.error(`UncaughtException: \n${err.stack}`)
+});
