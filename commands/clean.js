@@ -1,35 +1,35 @@
 
 module.exports.run = async (client, message, args) => {
     if(!args[0]){
-        return message.channel.send(`Command **clean** requires 2 arguments (\`<opt:[snowflake]:integer..>\`) passed 0`)
+        return message.channel.send("```Command clean requires 2 arguments (<opt:[snowflake]:integer..>) passed 0```");
     }
     if(args[0] === "all"){
         let now = new Date()
         if(!args[1]){
-            return message.channel.send(`Command **clean** requires 2 arguments (\`<opt:integer..>\`) passed 1`)
+            return message.channel.send("```Command clean requires 2 arguments (<opt:integer..>) passed 1```");
         }
         let amount = parseInt(args[1]) + 1;
         if(isNaN(amount)){
-            return message.channel.send(`Cannot convert ${args[1]} into \`integer\``)
+            return message.channel.send("```Cannot convert" + args[1] + "into (integer).```");
         }
         if(amount <= 1 || amount > 100){
-            return message.channel.send(`Amount must be between 1 and 100`)
+            return message.channel.send("```Amount must be between 1 and 100```");
         }
         let purgefunc = message.channel.bulkDelete(amount, true).catch(err => {
             console.error(err)
             return false;
         })
         if(purgefunc === false){
-            return message.channel.send(`Something went wrong, perhaps try again later`)
+            return message.channel.send("```Something went wrong, perhaps try again later.```");
         }
     }
     if(args[0] === "user"){
         let now = new Date()
         if(!args[1]){
-            return message.channel.send(`Command **clean** requires 2 arguments (\`<opt:snowflake:integer..>\`) passed 1`)
+            return message.channel.send("```Command **clean** requires 2 arguments (<opt:snowflake:integer..>) passed 1```");
         }
         if(isNaN(args[1])){
-            return message.channel.send(`Cannot convert ${args[1]} into \`snowflake\``)
+            return message.channel.send("```Cannot convert" + args[1] + "into (snowflake).```");
         }
         async function userDel(amount, userId, message) {
             let messagesDeleted = 0;
