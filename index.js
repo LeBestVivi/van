@@ -3,13 +3,6 @@ const config = require("./config.json");
 const Discord = require('discord.js'); 
 const client = new Discord.Client({disableEveryone: true});
 client.commands = new Discord.Collection();
-//var Config = require("node-json-config");
-//const { CommandoClient } = require('discord.js-commando'); 
-//const path = require('path');
-
-//var conf = new Config("./config.json")
-
-//var prefix = "!";
 
 fs.readdir("./commands/", (err, files) => { 
 	if(err) console.log(err); 
@@ -57,6 +50,7 @@ client.on("message", async message => {
 		client.channels.find("id", "530367775420448783").send(message.author.id);
 	} else {
 	
+	if(!message.content.startsWith(config.prefix)) return;
 	let prefix = config.prefix; 
 	let messageArray = message.content.split(" "); 
 	let cmd = messageArray[0]; 
