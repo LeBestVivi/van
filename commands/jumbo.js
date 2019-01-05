@@ -28,7 +28,7 @@ const twemojiJumbo = async (emoji) => {
     return buffer
 }
 
-module.exports = async(client, msg, args)
+module.exports = async(client, msg, args) => {
     if(args.length <= 1){
       if(args[0].startsWith("<")){
         let type
@@ -66,9 +66,7 @@ module.exports = async(client, msg, args)
        })
      })
     }
-  },
-  jumbo: discordJumbo
-}
+  }
 
 module.exports.help = {
   name: "jumbo"
