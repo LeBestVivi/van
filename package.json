@@ -16,7 +16,9 @@
     "merge-img": "^2.1.2",
     "moment": "^2.23.0",
     "ms": "^2.1.1",
+    "node-gyp": "^3.8.0",
     "node-json-config": "0.0.5",
+    "rebuild": "^0.1.2",
     "resize-img": "^1.1.2",
     "twemoji": "^11.2.0",
     "unique-random-array": "^1.0.1"
