@@ -21,15 +21,17 @@ module.exports.run = async (client, msg, args) => {
   	  		.catch(console.error);
     	}
     } else if (args[0] === "remove") {
+    	const Eemoji = client.emojis.get(args[1]);
+    	
     	msg.guild.deleteEmoji(args[1])
-    		.then(emoji => msg.channel.send("```Removed the [" + args[1] + "] emoji from the guild.```")) 
+    		.then(emoji => msg.channel.send("```Removed the [" + Eemoji.name + "] emoji from the guild.```")) 
     		.catch(console.error);
     } else if (args[0] === "edit") {
     	const Eemoji = client.emojis.get(args[1]);
     	
     	msg.guild.deleteEmoji(args[1])
     		.then(emoji => {
-    			msg.channel.send("```Edited the [" + args[1] + "], new emoji name is [" + args[2] + "].```")
+    			msg.channel.send("```Edited the [" + Eemoji.name + "], new emoji name is [" + args[2] + "].```")
     			msg.guild.createEmoji(Eemoji.url, args[2])
     		}).catch(console.error);
     }

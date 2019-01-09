@@ -20,7 +20,9 @@
     "node-json-config": "0.0.5",
     "rebuild": "^0.1.2",
     "resize-img": "^1.1.2",
+    "superagent": "^4.1.0",
     "twemoji": "^11.2.0",
-    "unique-random-array": "^1.0.1"
+    "unique-random-array": "^1.0.1",
+    "utils.js": "^1.0.1"
   }
 }
