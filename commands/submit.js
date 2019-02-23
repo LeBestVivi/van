@@ -1,25 +1,16 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
-let submit = JSON.parse(fs.readFileSync("./submissions.json", "utf8"));
 
 module.exports.run = async (client, msg, args) => {
+  if(msg.guild.id =! "493347937649295371") return;
 
   let sUser = msg.author
   
-  var Attachment = (message.attachments).array();
-
-  if(!submission[sUser.id]) submission[sUser.id], link[sUser.id] = {
-    submission: args[1],
-    link: args[2]
-  };
-
-  fs.writeFile("./submissions.json", JSON.stringify(warns), (err) => {
-    if (err) console.log(err)
-  });
+  var Attachment = (msg.attachments).array();
   
   if(!Attachment[0]) {
-  	let warnEmbed = new Discord.RichEmbed()
+  	let submitEmbed = new Discord.RichEmbed()
   	.setDescription("New submission")
   	.setAuthor(msg.author.username)
   	.setColor("#7289DA")
@@ -33,7 +24,7 @@ module.exports.run = async (client, msg, args) => {
   	msg.channel.send("Succesfully submitted your emoji!")
   	warnchannel.send(submitEmbed);
   } else {
-  	let warnEmbed = new Discord.RichEmbed()
+  	let submitEmbed = new Discord.RichEmbed()
   	.setDescription("New submission")
   	.setAuthor(msg.author.username)
   	.setColor("#7289DA")
@@ -53,6 +44,6 @@ module.exports.run = async (client, msg, args) => {
 }
 
 module.exports.help = {
-  name: "warn"
+  name: "submit"
 }
     
