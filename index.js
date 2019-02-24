@@ -28,24 +28,6 @@ client.on("ready", async () => {
 	client.user.setActivity("the road.", {type: "WATCHING"}); //
 }); 
 
-client.on('emojiCreate', emoji => { 
-	if (emoji.guild.id === '493347937649295371') {
-		client.guilds.get('493347937649295371').channels.get('548796891949694976').send(`<:greentick:548938070448275466> Added **${emoji.name}**.`);
-	}
-}); 
-
-client.on('emojiDelete', emoji => { 
-	if (emoji.guild.id === '493347937649295371') {
-		client.guilds.get('493347937649295371').channels.get('548796891949694976').send(`<:redtick:548938138375028748> Deleted **${emoji.name}**.`);
-	}
-});
-
-client.on('emojiUpdate', emoji => { 
-	if (emoji.guild.id === '493347937649295371') {
-		client.guilds.get('493347937649295371').channels.get('548796891949694976').send(`:pencil: Updated **${emoji.name}**.`);
-	}
-});
-
 client.on("message", async message => { 
 	if(message.author.bot) return; 
 	if(message.channel.type === "dm") {

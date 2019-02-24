@@ -18,6 +18,7 @@
     "ms": "^2.1.1",
     "node-gyp": "^3.8.0",
     "node-json-config": "0.0.5",
+    "randomatic": "^3.1.1",
     "rebuild": "^0.1.2",
     "resize-img": "^1.1.2",
     "sqlite3": "^4.0.6",
